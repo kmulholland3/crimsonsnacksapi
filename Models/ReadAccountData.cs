@@ -19,7 +19,7 @@ namespace API.Models.Interface
                 List<Accounts> allAccounts = new List<Accounts>();
                 using (var rdr = cmd.ExecuteReader()){
                     while(rdr.Read()){
-                        allAccounts.Add(new Accounts(){EmpID = rdr.GetInt32(0), EmpFName = rdr.GetString(1), EmpLName = rdr.GetString(2), Dept = rdr.GetString(3), EmployerID = rdr.GetInt32(4)});
+                        allAccounts.Add(new Accounts(){EmpID = rdr.GetInt32(0), EmpFName = rdr.GetString(1), EmpLName = rdr.GetString(2), Dept = rdr.GetString(3)});
                     }
                 }
 
@@ -60,7 +60,7 @@ namespace API.Models.Interface
 
                 using (var rdr = cmd.ExecuteReader()){
                     rdr.Read();
-                    newAccount = new Accounts(){EmpID = rdr.GetInt32(0), EmpFName = rdr.GetString(1), EmpLName = rdr.GetString(2), Dept = rdr.GetString(3), EmployerID = rdr.GetInt32(4)};
+                    newAccount = new Accounts(){EmpID = rdr.GetInt32(0), EmpFName = rdr.GetString(1), EmpLName = rdr.GetString(2), Dept = rdr.GetString(3)};
                 }
 
                 db.CloseConnection();
