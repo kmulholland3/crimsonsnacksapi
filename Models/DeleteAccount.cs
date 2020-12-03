@@ -27,6 +27,8 @@ namespace API.Models {
                 cmd.Parameters.AddWithValue ("@id", id);
                 cmd.Prepare ();
                 cmd.ExecuteNonQuery ();
+
+                db.CloseConnection();
             }
         }
     }
