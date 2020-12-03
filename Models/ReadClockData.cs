@@ -20,7 +20,7 @@ namespace API.Models
                 List<Clocks> allClocks = new List<Clocks>();
                 using (var rdr = cmd.ExecuteReader()){
                     while(rdr.Read()){
-                        allClocks.Add(new Clocks(){TimeID = rdr.GetInt32(0), TimeIn = rdr.GetDateTime(1), TimeOut = rdr.GetDateTime(2), TimeWorked = rdr.GetDouble(3), EmpID = rdr.GetInt32(4), RoleID = rdr.GetInt32(5)});
+                        allClocks.Add(new Clocks(){TimeID = rdr.GetInt32(0), TimeIn = rdr.GetDateTime(1), TimeOut = rdr.GetDateTime(2), TimeWorked = rdr.GetDouble(3), EmpID = rdr.GetInt32(4)});
                     }
                 }
 
@@ -60,7 +60,7 @@ namespace API.Models
 
                 using (var rdr = cmd.ExecuteReader()){
                     rdr.Read();
-                    newClock = new Clocks(){TimeID = rdr.GetInt32(0), TimeIn = rdr.GetDateTime(1), TimeOut = rdr.GetDateTime(2), TimeWorked = rdr.GetDouble(3), EmpID = rdr.GetInt32(4), RoleID = rdr.GetInt32(5)};
+                    newClock = new Clocks(){TimeID = rdr.GetInt32(0), TimeIn = rdr.GetDateTime(1), TimeOut = rdr.GetDateTime(2), TimeWorked = rdr.GetDouble(3), EmpID = rdr.GetInt32(4)};
                 }
 
                 db.CloseConnection();

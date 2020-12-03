@@ -18,13 +18,13 @@ namespace API.Models {
 
             DBConnect db = new DBConnect ();
             bool isOpen = db.OpenConnection ();
-
+            System.Console.WriteLine("Got before connection");
             if (isOpen) {
                 MySqlConnection conn = db.GetConn ();
                 MySqlCommand cmd = new MySqlCommand ();
 
                 cmd.Connection = conn;
-
+                System.Console.WriteLine("Got open");
                 cmd.CommandText = @"INSERT INTO employers(username, password) VALUES(@username, @password)";
                 cmd.Parameters.AddWithValue ("@username", value.UserName);
                 cmd.Parameters.AddWithValue ("@password", value.Password);

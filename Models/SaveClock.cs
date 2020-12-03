@@ -35,7 +35,7 @@ namespace API.Models {
 
                 cmd.Connection = conn;
 
-                cmd.CommandText = @"INSERT INTO clocks(timein, timeout, timeworked, empid, roleid) VALUES(@timein, @timeout, @timeworked, @empid, @roleid)";
+                cmd.CommandText = @"INSERT INTO clocks(timein, timeout, timeworked, empid) VALUES(@timein, @timeout, @timeworked, @empid)";
                 DateTime clockIn = DateTime.Now;
                 System.Console.WriteLine ("The emp id is " + value.EmpID);
                 System.Console.WriteLine ("The time now is " + clockIn);
@@ -43,7 +43,6 @@ namespace API.Models {
                 cmd.Parameters.AddWithValue ("@timeout", clockIn);
                 cmd.Parameters.AddWithValue ("@timeworked", 0);
                 cmd.Parameters.AddWithValue ("@empid", value.EmpID);
-                cmd.Parameters.AddWithValue ("@roleid", value.RoleID);
                 cmd.Prepare ();
                 cmd.ExecuteNonQuery ();
 
