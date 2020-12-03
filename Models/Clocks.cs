@@ -8,7 +8,7 @@ namespace API.Models
         public DateTime TimeOut{get;set;}
         public double TimeWorked{get;set;}
         public int EmpID{get;set;}
-        public int RoleID{get;set;}
+        //public int RoleID{get;set;}
 
     }
 }

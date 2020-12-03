@@ -6,6 +6,6 @@ namespace API.Models
         public string EmpFName {get;set;}
         public string EmpLName{get;set;}
         public string Dept{get;set;}
-        public int EmployerID{get;set;}
+        //public int EmployerID{get;set;}
     }
 }
