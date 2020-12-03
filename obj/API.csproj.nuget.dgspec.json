@@ -1,0 +1,75 @@
+{
+  "format": 1,
+  "restore": {
+    "/Users/katiemulholland/source/repos/CrimsonSnacks/API/API.csproj": {}
+  },
+  "projects": {
+    "/Users/katiemulholland/source/repos/CrimsonSnacks/API/API.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/katiemulholland/source/repos/CrimsonSnacks/API/API.csproj",
+        "projectName": "API",
+        "projectPath": "/Users/katiemulholland/source/repos/CrimsonSnacks/API/API.csproj",
+        "packagesPath": "/Users/katiemulholland/.nuget/packages/",
+        "outputPath": "/Users/katiemulholland/source/repos/CrimsonSnacks/API/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/katiemulholland/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "dependencies": {
+            "Microsoft.AspNetCore.Cors": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
+            "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
+              "target": "Package",
+              "version": "[3.1.4, )"
+            },
+            "System.Data.SQLite.Core": {
+              "target": "Package",
+              "version": "[1.0.113.5, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/3.1.401/RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
