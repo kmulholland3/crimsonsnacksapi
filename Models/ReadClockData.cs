@@ -56,7 +56,7 @@ namespace API.Models
                 MySqlConnection conn = db.GetConn();
                 string stm = "SELECT * FROM clocks WHERE id = @id";
                 MySqlCommand cmd = new MySqlCommand(stm, conn);
-                Clocks newClock = new Clocks();
+                Clocks newClock;
 
                 using (var rdr = cmd.ExecuteReader()){
                     rdr.Read();
