@@ -1,39 +1,37 @@
 using System.Collections.Generic;
 using System.Data.SQLite;
-using MySql.Data.MySqlClient;
 using API.Models.Interface;
-namespace API.Models
-{
+using MySql.Data.MySqlClient;
+namespace API.Models {
     public class ReadClockData : IGetAllClocks, IGetClock
 
     {
-        public List<Clocks> GetAllClocks()
-        {
-            DBConnect db = new DBConnect();
-            bool isOpen = db.OpenConnection();
+        public List<Clocks> GetAllClocks () {
+            DBConnect db = new DBConnect ();
+            bool isOpen = db.OpenConnection ();
 
-            if(isOpen){
-                MySqlConnection conn = db.GetConn();
+            if (isOpen) {
+                MySqlConnection conn = db.GetConn ();
                 string stm = "SELECT * FROM clocks ORDER BY id";
-                MySqlCommand cmd = new MySqlCommand(stm, conn);
+                MySqlCommand cmd = new MySqlCommand (stm, conn);
 
-                List<Clocks> allClocks = new List<Clocks>();
-                using (var rdr = cmd.ExecuteReader()){
-                    while(rdr.Read()){
-                        allClocks.Add(new Clocks(){TimeID = rdr.GetInt32(0), TimeIn = rdr.GetDateTime(1), TimeOut = rdr.GetDateTime(2), TimeWorked = rdr.GetDouble(3), EmpID = rdr.GetInt32(4)});
+                List<Clocks> allClocks = new List<Clocks> ();
+                using (var rdr = cmd.ExecuteReader ()) {
+                    while (rdr.Read ()) {
+                        allClocks.Add (new Clocks () { TimeID = rdr.GetInt32 (0), TimeIn = rdr.GetDateTime (1), TimeOut = rdr.GetDateTime (2), TimeWorked = rdr.GetDouble (3), EmpID = rdr.GetInt32 (4) });
                     }
                 }
 
-                db.CloseConnection();
+                db.CloseConnection ();
                 return allClocks;
-            } else{
-                return new List<Clocks>();
+            } else {
+                return new List<Clocks> ();
             }
 
             // string cs = @"URI=file:" + System.Environment.CurrentDirectory + "/crimsonsnacks.db";
             // using var con = new SQLiteConnection(cs);
             // con.Open();
-            
+
             // string stm = "SELECT * FROM clocks ORDER BY id";
             // using var cmd = new SQLiteCommand(stm,con);
 
@@ -47,26 +45,27 @@ namespace API.Models
             // return allClocks;
         }
 
-        public Clocks GetClock(int id)
-        {
-            DBConnect db = new DBConnect();
-            bool isOpen = db.OpenConnection();
+        public Clocks GetClock (int id) {
+            DBConnect db = new DBConnect ();
+            bool isOpen = db.OpenConnection ();
 
-            if(isOpen){
-                MySqlConnection conn = db.GetConn();
+            if (isOpen) {
+                MySqlConnection conn = db.GetConn ();
                 string stm = "SELECT * FROM clocks WHERE id = @id";
-                MySqlCommand cmd = new MySqlCommand(stm, conn);
+                MySqlCommand cmd = new MySqlCommand (stm, conn);
+                cmd.Parameters.AddWithValue("@id", id);
+                cmd.Prepare();
                 Clocks newClock;
 
-                using (var rdr = cmd.ExecuteReader()){
-                    rdr.Read();
-                    newClock = new Clocks(){TimeID = rdr.GetInt32(0), TimeIn = rdr.GetDateTime(1), TimeOut = rdr.GetDateTime(2), TimeWorked = rdr.GetDouble(3), EmpID = rdr.GetInt32(4)};
+                using (var rdr = cmd.ExecuteReader ()) {
+                    rdr.Read ();
+                    newClock = new Clocks () { TimeID = rdr.GetInt32 (0), TimeIn = rdr.GetDateTime (1), TimeOut = rdr.GetDateTime (2), TimeWorked = rdr.GetDouble (3), EmpID = rdr.GetInt32 (4) };
                 }
 
-                db.CloseConnection();
+                db.CloseConnection ();
                 return newClock;
-            } else{
-                return new Clocks();
+            } else {
+                return new Clocks ();
             }
             // string cs = @"URI=file:" + System.Environment.CurrentDirectory + "/crimsonsnacks.db";
             // using var con = new SQLiteConnection(cs);
