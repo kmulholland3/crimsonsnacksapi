@@ -13,11 +13,10 @@ namespace API.Models {
 
                 cmd.Connection = conn;
 
-                cmd.CommandText = @"INSERT INTO accounts(empfname, emplname, dept, employerid) VALUES(@empfname, @emplname, @dept, @employerid)";
+                cmd.CommandText = @"INSERT INTO accounts(empfname, emplname, dept) VALUES(@empfname, @emplname, @dept)";
                 cmd.Parameters.AddWithValue ("@empfname", value.EmpFName);
                 cmd.Parameters.AddWithValue ("@emplname", value.EmpLName);
                 cmd.Parameters.AddWithValue ("@dept", value.Dept);
-                cmd.Parameters.AddWithValue ("@employerid", value.EmployerID);
                 cmd.Prepare ();
                 cmd.ExecuteNonQuery ();
 
